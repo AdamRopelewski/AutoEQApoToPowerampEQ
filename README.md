@@ -8,18 +8,23 @@ This tool takes an EQ configuration file in the txt format and converts it into 
 
 ## Usage
 
-1. Put time name of the eq (visible late in the Poweramp app)
-2. Drag and drop txt file with eq exported from AutoEQ.app as EqualizerAPO ParametricEq
+1. Put in the name of the eq (visible late in the Poweramp app)
+2. Drag and drop txt file with eq exported from AutoEQ.app for EqualizerAPO ParametricEq
 3. Specify the location and name of the .json file
 4. Import the .json file into Poweramp Eq app
 
 ## Installation
 
-Download exe file from the latest the realese.
+Clone this repo
+Install all dependencies
 
 ## Requirements
 
 - Python 3.x
+- tkinter
+- tkinterdnd2
+- json
+- random
 
 ## Usage Example
 
