@@ -66,7 +66,9 @@ def main():
                     source_data = file.readlines()
                     converted_data = convert_data(source_data, output_file_name)
                     output_file_path = filedialog.asksaveasfilename(
-                        defaultextension=".json", filetypes=[("JSON files", "*.json")]
+                        defaultextension=".json", 
+                        filetypes=[("JSON files", "*.json")],
+                        initialfile=output_file_name  # Ustawienie początkowej nazwy pliku
                     )
                     with open(output_file_path, "w") as output_file:
                         json.dump(converted_data, output_file, indent="\t")
