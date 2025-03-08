@@ -88,15 +88,30 @@ def main():
 
     frame = tk.Frame(root, width=800, height=400)
     frame.grid(row=0, column=0, padx=10, pady=10)
+    
+    instructions = (
+        "1. Podaj docelową nazwę presetu w Poweramp.\n"
+        "2. Przeciągnij plik .txt z parametrami filtrów (takimi jak dla APO EQ).\n"
+        "3. Zostaniesz poproszony o podanie lokalizacji oraz nazwy pliku .json.\n"
+        "4. Zaimportuj plik .json do Poweramp lub PowerampEQ."
+    )
 
-    tk.Label(frame, text="Nazwa pliku wyjściowego:").grid(row=0, column=0, sticky="w")
+
+    # Creating a Text widget for instructions
+    text_widget = tk.Text(frame, wrap="word", height=6, width=80)
+    text_widget.grid(row=0, column=0, columnspan=2, sticky="w", padx=5, pady=5)
+    text_widget.insert(tk.END, instructions)
+    text_widget.config(state=tk.DISABLED)  # Make the text widget non-editable
+
+
+    tk.Label(frame, text="Nazwa pliku wyjściowego:").grid(row=1, column=0, sticky="w")
     output_file_name_entry = tk.Entry(frame)
-    output_file_name_entry.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
+    output_file_name_entry.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
 
-    tk.Label(frame, text="Przeciągnij plik txt:").grid(row=1, column=0, sticky="w")
+    tk.Label(frame, text="Przeciągnij plik txt:").grid(row=2, column=0, sticky="w")
 
     status_label = tk.Label(root, text="", bd=1, relief=tk.SUNKEN, anchor=tk.W)
-    status_label.grid(row=1, column=0, sticky="ew")
+    status_label.grid(row=3, column=0, sticky="ew")
 
     frame.drop_target_register(DND_FILES)
     frame.dnd_bind("<<Drop>>", on_drop)
